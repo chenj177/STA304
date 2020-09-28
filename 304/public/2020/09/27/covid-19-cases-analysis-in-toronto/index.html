@@ -62,7 +62,7 @@
 
   <article class="article">
     
-    <span class="article-duration">5 min read</span>
+    <span class="article-duration">9 min read</span>
     
 
     <h1 class="article-title">Covid-19 Cases Analysis in Toronto</h1>
@@ -73,7 +73,7 @@
 
     
     <span class="article-meta">
-      Jingyi Chen / 27 Sep 2020 / 5 min read <br>
+      Jingyi Chen / 27 Sep 2020 / 9 min read <br>
       
       
       
@@ -87,43 +87,71 @@
       
 
 
-<div id="abstract" class="section level1">
-<h1>Abstract</h1>
+<p>Code and data supporting this analysis is available at: <a href="https://chenj177.github.io/STA304/" class="uri">https://chenj177.github.io/STA304/</a></p>
+<div id="abstract" class="section level3">
+<h3><strong>Abstract</strong></h3>
 <p>In this article, we investigated the covid-19 cases in Toronto. We want to demonstrate how covid-19 cases spread around Toronto, what age group has the highest number of cases, and the rate of severity in all cases, etc. Through analyzing the data from open data Toronto, we want to show people a comprehensive and detailed circumstances of this ongoing pandemic in Toronto.</p>
 </div>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
 <p>Do men or women more likely get infected by covid-19 in Toronto? How old are most covid-19 patients in Toronto? How likely covid-19 patients get hospitalized in Toronto? In this blog, we used data from Open Data Toronto, which contains data of covid-19 cases of this pandemic. In this data, it includes some information of either past or current covid-19 patients, such as their age group, gender, and neighbourhood, etc. Therefore, by using this data, we want to show you some facts about situation of covid-19 in Toronto.</p>
-<div id="visualization-of-characteristics-of-covid-19-cases-in-toronto" class="section level2">
-<h2>Visualization of characteristics of covid-19 cases in Toronto</h2>
-<p>To answer the questions we asked above, we are using several plot to demonstrate the result:</p>
-<div id="how-old-are-most-covid-19-patients-in-toronto" class="section level4">
-<h4>How old are most covid-19 patients in Toronto?</h4>
-<p><img src="../../../../post/2020-09-27-Covid-19-Cases-in-Toronto_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<p>As we can see, the number of young patients between 20 to 29 is the highest in all age groups, followed by age group between 50 and 59.</p>
-<p><img src="../../../../post/2020-09-27-Covid-19-Cases-in-Toronto_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<p><img src="../../../../post/2020-09-27-Covid-19-Cases-in-Toronto_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<p><img src="../../../../post/2020-09-27-Covid-19-Cases-in-Toronto_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
+<div id="staristics-of-characteristics-of-covid-19-cases-in-toronto" class="section level1">
+<h1>Staristics of characteristics of covid-19 cases in Toronto</h1>
+<div id="visualization" class="section level4">
+<h4>Visualization</h4>
+<p>To answer the questions we asked above, we are using several plots to demonstrate the result:</p>
+<ul>
+<li>How old are most covid-19 patients in Toronto?</li>
+</ul>
+<p><img src="../../../../post/2020-09-27-Covid-19-Cases-in-Toronto_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>As we can see by graph 1, the number of young patients between 20 to 29 is the highest in all age groups(total 3049 by Table 3), followed by age group between 30 and 39(total 2724 by Table 3). The peak of distribution is between age of 20 to 69.</p>
+<ul>
+<li>Do men or women more likely get infected by covid-19 in Toronto?
+<img src="../../../../post/2020-09-27-Covid-19-Cases-in-Toronto_files/figure-html/unnamed-chunk-3-1.png" width="672" /></li>
+</ul>
+<p>From graph 2, it shows that more female(total 9427 by Table 5) get infected than male(total 8184 by Table 5) in Toronto. Thousand of more female infected than male.</p>
+<ul>
+<li>How many cases resolved, active or fatal?</li>
+</ul>
+<p><img src="../../../../post/2020-09-27-Covid-19-Cases-in-Toronto_files/figure-html/unnamed-chunk-4-1.png" width="672" /><img src="../../../../post/2020-09-27-Covid-19-Cases-in-Toronto_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
+<p>By graph 3, it shows that more than 15,000 cases have been resolved. But, in this bar plot, the number of active and fatal cases is unclear. Hence, we plotted graph 4 and shows that over 1,200 cases is still active right now, and there are nearly 1,200 fatal cases in Toronto.</p>
+<ul>
+<li>What are the most sources of infections in Toronto?</li>
+</ul>
+<p><img src="../../../../post/2020-09-27-Covid-19-Cases-in-Toronto_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>From graph 5, it shows that most covid-19 cases in Toronto are infected by close contact and outbreak associated. It is important to keep social distancing and wear proper protections such as mask.</p>
 </div>
 </div>
 <div id="discussion" class="section level1">
 <h1>Discussion</h1>
-<p>Most cases in which area
-Most outbreak associated
-Most patient in which age group
-Most patients were infected by
-More female patients than male patients
-age group in each gender
-Total fatal cases and active cases, most active cases in each area</p>
-<p>How many patients are currently hospitalized
-how many patients are ever hospitalized
-How many patients are currently in ICU
-How many patients are ever in ICU
-How many patients are currently intubated
-How many patients are ever intubated</p>
-<p>percentage of fatality for patient ever in ICU, intubated and hospitalized.</p>
-<p>correlation between age and conditions</p>
+<p>From bar plots above, the peak of distribution of patients is between age of 20 to 69, which most at their age of labor force population. They have higher probability of socializing, commuting and working. Therefore, virus is easier to access them. The major sources of infection are caused by close contact(total 6419 by Table 4) and outbreak associated(total 5974 by Table 4). Thus, it is important to wear protection such as facial mask. Bloomberg reported a news of an outbreak in Seoul, South Korean, a woman with coronavirus visited a cafe and infect more than two dozen of people, but employees at the cafe who wore face masks are not infected.</p>
+<p>From table 1 to 14 in the appendix, we can see the exact count and spread of covid-19 in Toronto. We find that postal code area of M9V has the highest counts of coronavirus infection. To be specific, neighbourhood Mount Olive-Silverstone-Jamestown has the highest count of infected cased, followed by neighbourhood West Humber-Clairville. Table 6 shows that more young men are infected than yooung women between age of 20 and 29. There are still 1254 active cases in Toronto right now and most of active cases living in neighbourhood of Waterfront Coummunities-The Island, followed by neighbourhood Niagara, York University Heights,
+Church-Yonge Corridor, which all of these neighbourhoods are populated and crowded.</p>
+<p>By table 10 and 11, we can see that most of cases have ever been hospitalized are seniors, suggesting high risk of fatality of older population that get infected. Daniele and his colleagues’ study also proved our finding of higher risk of infection coronavirus of older people. By table 12,13,and 14, it shows that fatalities are high in hospitalized patients, at percentage of 541/(1403+541+46)=27.2%, once the situation worsen and patient is sent into ICU, the percentage increases to 168/(246+168+14)=39.3%. If the patient is intubates, the rate surges to 133/(155+133+5)=45.4%. Dr. Mohammad and his colleagues found the same result that higher rate of fatality is consistent with hospitalized covid-19 cases in Iran, the same as what we found in Toronto.</p>
+<div id="weakness-and-next-steps" class="section level2">
+<h2>Weakness and next steps</h2>
+<p>We went through some simple analysis of coronavirus cases in Toronto. However, we didn’t build a statistical model to analyze the relationships between variables provided by Open data Toronto. How statistically, for example, age and outcome of covid-19 related? Is it statistically significant? The result remain unclear and need further professional analysis and study.</p>
+<p>By showing some patterns of infection of coronavirus cases in Toronto, a few points need to be emphasized and discussed.</p>
+<ul>
+<li><p>Should we perform more strict acts to stop the oncoming second waves?</p></li>
+<li><p>Like Migita and Debanjan discussed, how can we protect fragile seniors better in this pandemic? How should our health care system get prepared in case of suddenly surging cases?</p></li>
+<li><p>What can individuals do to stop the virus spread and how government educates, promotes and advocates citizens to do so? (e.g wear mask, reduce gathering and party, etc.)</p></li>
+</ul>
+</div>
+</div>
+<div id="references" class="section level1">
+<h1>References</h1>
+<ul>
+<li><p>Carrieri, D., Peccatori, F. A., &amp; Boniolo, G. (2020). COVID-19: a plea to protect the older population. International journal for equity in health, 19(1), 72. <a href="https://doi.org/10.1186/s12939-020-01193-5" class="uri">https://doi.org/10.1186/s12939-020-01193-5</a></p></li>
+<li><p>D’cruz, M., &amp; Banerjee, D. (2020). ‘An invisible human rights crisis’: The marginalization of older adults during the COVID-19 pandemic - An advocacy review. Psychiatry research, 292, 113369. Advance online publication. <a href="https://doi.org/10.1016/j.psychres.2020.113369" class="uri">https://doi.org/10.1016/j.psychres.2020.113369</a></p></li>
+<li><p>Jalili, M., Payandemehr, P., Saghaei, A., Sari, H. N., Safikhani, H., &amp; Kolivand, P. (2020). Characteristics and Mortality of Hospitalized Patients With COVID-19 in Iran: A National Retrospective Cohort Study. Annals of internal medicine, M20-2911. Advance online publication. <a href="https://doi.org/10.7326/M20-2911" class="uri">https://doi.org/10.7326/M20-2911</a></p></li>
+<li><p>Kim, H., &amp; Kim, S. (2020, August 25). Starbucks Cafe’s Covid Outbreak Spared Employees Who Wore Masks. Retrieved September 28, 2020, from <a href="https://www.bloomberg.com/news/articles/2020-08-25/this-starbucks-in-south-korea-became-a-beacon-for-mask-wearing" class="uri">https://www.bloomberg.com/news/articles/2020-08-25/this-starbucks-in-south-korea-became-a-beacon-for-mask-wearing</a></p></li>
+</ul>
+</div>
+<div id="appendix" class="section level1">
+<h1>Appendix</h1>
+<p>Table 1:</p>
 <pre><code>## # A tibble: 97 x 2
 ##    FSA   count
 ##    &lt;chr&gt; &lt;int&gt;
@@ -138,6 +166,7 @@ How many patients are ever intubated</p>
 ##  9 M9N     405
 ## 10 M1B     376
 ## # … with 87 more rows</code></pre>
+<p>Table 2:</p>
 <pre><code>## # A tibble: 141 x 2
 ##    `Neighbourhood Name`              count
 ##    &lt;chr&gt;                             &lt;int&gt;
@@ -152,6 +181,7 @@ How many patients are ever intubated</p>
 ##  9 Kingsview Village-The Westway       365
 ## 10 Black Creek                         347
 ## # … with 131 more rows</code></pre>
+<p>Table 3:</p>
 <pre><code>## # A tibble: 10 x 2
 ##    `Age Group`    count
 ##    &lt;chr&gt;          &lt;int&gt;
@@ -165,6 +195,7 @@ How many patients are ever intubated</p>
 ##  8 70 to 79 Years  1133
 ##  9 90 and older    1116
 ## 10 NaN               33</code></pre>
+<p>Table 4:</p>
 <pre><code>## # A tibble: 8 x 2
 ##   `Source of Infection`     count
 ##   &lt;chr&gt;                     &lt;int&gt;
@@ -176,6 +207,7 @@ How many patients are ever intubated</p>
 ## 6 Unknown/Missing             622
 ## 7 Institutional               344
 ## 8 Pending                      70</code></pre>
+<p>Table 5:</p>
 <pre><code>## # A tibble: 5 x 2
 ##   `Client Gender` count
 ##   &lt;chr&gt;           &lt;int&gt;
@@ -184,6 +216,7 @@ How many patients are ever intubated</p>
 ## 3 UNKNOWN           250
 ## 4 OTHER               6
 ## 5 TRANSGENDER         5</code></pre>
+<p>Table 6:</p>
 <pre><code>## # A tibble: 37 x 3
 ## # Groups:   Client Gender [5]
 ##    `Client Gender` `Age Group`    count
@@ -199,12 +232,14 @@ How many patients are ever intubated</p>
 ##  9 FEMALE          80 to 89 Years   967
 ## 10 MALE            60 to 69 Years   912
 ## # … with 27 more rows</code></pre>
+<p>Table 7:</p>
 <pre><code>## # A tibble: 3 x 2
 ##   Outcome  count
 ##   &lt;chr&gt;    &lt;int&gt;
 ## 1 RESOLVED 15440
 ## 2 ACTIVE    1254
 ## 3 FATAL     1178</code></pre>
+<p>Table 8:</p>
 <pre><code>## # A tibble: 135 x 2
 ##    `Neighbourhood Name`              count
 ##    &lt;chr&gt;                             &lt;int&gt;
@@ -219,20 +254,59 @@ How many patients are ever intubated</p>
 ##  9 Kingsview Village-The Westway        26
 ## 10 Mount Olive-Silverstone-Jamestown    25
 ## # … with 125 more rows</code></pre>
+<p>Table 9:</p>
 <pre><code>## # A tibble: 2 x 2
 ##   `Currently Hospitalized` count
 ##   &lt;chr&gt;                    &lt;int&gt;
 ## 1 No                       17838
 ## 2 Yes                         34</code></pre>
-<div id="weakness-and-next-steps" class="section level2">
-<h2>Weakness and next steps</h2>
-</div>
-</div>
-<div id="references" class="section level1">
-<h1>References</h1>
-<p>Carrieri, D., Peccatori, F. A., &amp; Boniolo, G. (2020). COVID-19: a plea to protect the older population. International journal for equity in health, 19(1), 72. <a href="https://doi.org/10.1186/s12939-020-01193-5" class="uri">https://doi.org/10.1186/s12939-020-01193-5</a></p>
-<p>D’cruz, M., &amp; Banerjee, D. (2020). ‘An invisible human rights crisis’: The marginalization of older adults during the COVID-19 pandemic - An advocacy review. Psychiatry research, 292, 113369. Advance online publication. <a href="https://doi.org/10.1016/j.psychres.2020.113369" class="uri">https://doi.org/10.1016/j.psychres.2020.113369</a></p>
-<p>Jalili, M., Payandemehr, P., Saghaei, A., Sari, H. N., Safikhani, H., &amp; Kolivand, P. (2020). Characteristics and Mortality of Hospitalized Patients With COVID-19 in Iran: A National Retrospective Cohort Study. Annals of internal medicine, M20-2911. Advance online publication. <a href="https://doi.org/10.7326/M20-2911" class="uri">https://doi.org/10.7326/M20-2911</a></p>
+<p>Table 10:</p>
+<pre><code>## # A tibble: 9 x 2
+##   `Age Group`    count
+##   &lt;chr&gt;          &lt;int&gt;
+## 1 80 to 89 Years   409
+## 2 70 to 79 Years   380
+## 3 60 to 69 Years   363
+## 4 50 to 59 Years   312
+## 5 90 and older     184
+## 6 40 to 49 Years   162
+## 7 30 to 39 Years   100
+## 8 20 to 29 Years    57
+## 9 19 and younger    23</code></pre>
+<p>Table 11:</p>
+<pre><code>## # A tibble: 9 x 2
+##   `Age Group`    count
+##   &lt;chr&gt;          &lt;int&gt;
+## 1 80 to 89 Years   416
+## 2 90 and older     386
+## 3 70 to 79 Years   219
+## 4 60 to 69 Years   109
+## 5 50 to 59 Years    36
+## 6 40 to 49 Years     9
+## 7 19 and younger     1
+## 8 20 to 29 Years     1
+## 9 30 to 39 Years     1</code></pre>
+<p>Table 12:</p>
+<pre><code>## # A tibble: 3 x 2
+##   Outcome  count
+##   &lt;chr&gt;    &lt;int&gt;
+## 1 RESOLVED  1403
+## 2 FATAL      541
+## 3 ACTIVE      46</code></pre>
+<p>Table 13:</p>
+<pre><code>## # A tibble: 3 x 2
+##   Outcome  count
+##   &lt;chr&gt;    &lt;int&gt;
+## 1 RESOLVED   246
+## 2 FATAL      168
+## 3 ACTIVE      14</code></pre>
+<p>Table 14:</p>
+<pre><code>## # A tibble: 3 x 2
+##   Outcome  count
+##   &lt;chr&gt;    &lt;int&gt;
+## 1 RESOLVED   155
+## 2 FATAL      133
+## 3 ACTIVE       5</code></pre>
 </div>
 
     </div>
@@ -274,4 +348,3 @@ How many patients are ever intubated</p>
     
   </body>
 </html>
-
