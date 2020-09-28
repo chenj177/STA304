@@ -4,6 +4,7 @@ author: "Jingyi Chen"
 date: "2020-09-27" 
 output: html_document
 ---
+Code and data supporting this analysis is available at: https://chenj177.github.io/STA304/
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -34,11 +35,14 @@ data
 
 ```
 
-# Abstract
+### **Abstract**
 In this article, we investigated the covid-19 cases in Toronto. We want to demonstrate how covid-19 cases spread around Toronto, what age group has the highest number of cases, and the rate of severity in all cases, etc. Through analyzing the data from open data Toronto, we want to show people a comprehensive and detailed circumstances of this ongoing pandemic in Toronto.
 
 
 # Introduction
+Do men or women more likely get infected by covid-19 in Toronto? How old are most covid-19 patients in Toronto? How likely covid-19 patients get hospitalized in Toronto? In this blog, we used data from Open Data Toronto, which contains data of covid-19 cases of this pandemic. In this data, it includes some information of either past or current covid-19 patients, such as their age group, gender, and neighbourhood, etc. Therefore, by using this data, we want to show you some facts about situation of covid-19 in Toronto.
+
+
 
 ```{r, echo=FALSE, , include=FALSE}
 visdat::vis_dat(data)
@@ -61,9 +65,13 @@ select_data <-
 
 ```
 
-## Including Plots
+# Staristics of characteristics of covid-19 cases in Toronto
 
-You can also embed plots, for example:
+#### Visualization
+
+To answer the questions we asked above, we are using several plots to demonstrate the result:
+
+* How old are most covid-19 patients in Toronto?
 
 ```{r, echo=FALSE}
 
@@ -75,107 +83,216 @@ data %>%
        title = "Distribution of Age Goups in Covid-19 Cases.",
        tag = "Graph 1")+
    theme(axis.text.x = element_text(size = 4.5))    
+```
+
+As we can see by graph 1, the number of young patients between 20 to 29 is the highest in all age groups(total 3049 by Table 3), followed by age group between 30 and 39(total 2724 by Table 3). The peak of distribution is between age of 20 to 69. 
+
+* Do men or women more likely get infected by covid-19 in Toronto?
+```{r, echo=FALSE}
 
 data %>%
   ggplot(aes(x = `Client Gender`)) +
   geom_bar() +
   labs(x = "Gender",
        y = "Number",
-       title = "Distribution of Gender Goups in Covid-19 Cases.")+
+       title = "Distribution of Gender Goups in Covid-19 Cases.",
+       tag = "Graph 2")+
    theme_bw()
-  
+```
+
+From graph 2, it shows that more female(total 9427 by Table 5) get infected than male(total 8184 by Table 5) in Toronto. Thousand of more female infected than male.
+
+* How many cases resolved, active or fatal?
+
+```{r, echo=FALSE}
 data %>%
   ggplot(aes(x = Outcome)) +
   geom_bar() +
   labs(x = "Outcome",
        y = "Number",
-       title = "Distribution of Outcomes in Covid-19 Cases.")+
+       title = "Distribution of Outcomes in Covid-19 Cases.",
+       tag = "Graph 3")+
    theme_bw()
 
+data %>%
+  filter(Outcome != "RESOLVED") %>%
+  ggplot(aes(x = Outcome)) +
+  geom_bar() +
+  labs(x = "Outcome",
+       y = "Number",
+       title = "Distribution of Outcomes in Covid-19 Cases.",
+       tag = "Graph 4")+
+   theme_bw()
+```
+
+By graph 3, it shows that more than 15,000 cases have been resolved. But, in this bar plot, the number of active and fatal cases is unclear. Hence, we plotted graph 4 and shows that over 1,200 cases is still active right now, and there are nearly 1,200 fatal cases in Toronto.
+
+* What are the most sources of infections in Toronto?
+
+```{r, echo=FALSE}
 data %>%
   ggplot(aes(x = `Source of Infection`)) +
   geom_bar() +
   labs(x = "Source of Infection",
        y = "Number",
-       title = "Distribution of Source of Infection in Covid-19 Cases.")+
+       title = "Distribution of Source of Infection in Covid-19 Cases.",
+       tag = "Graph 5")+
    theme(axis.text.x = element_text(size = 4.5))
-
 
 ```
 
+From graph 5, it shows that most covid-19 cases in Toronto are infected by close contact and outbreak associated. It is important to keep social distancing and wear proper protections such as mask. 
+
+
 # Discussion
-Most cases in which area
-Most outbreak associated
-Most patient in which age group
-Most patients were infected by
-More female patients than male patients
-age group in each gender
-Total fatal cases and active cases, most active cases in each area
 
-How many patients are currently hospitalized
-how many patients are ever hospitalized
-How many patients are currently in ICU
-How many patients are ever in ICU
-How many patients are currently intubated
-How many patients are ever intubated
+From bar plots above, the peak of distribution of patients is between age of 20 to 69, which most at their age of labor force population. They have higher probability of socializing, commuting and working. Therefore, virus is easier to access them. The major sources of infection are caused by close contact(total 6419 by Table 4) and outbreak associated(total 5974 by Table 4). Thus, it is important to wear protection such as facial mask. Bloomberg reported a news of an outbreak in Seoul, South Korean, a woman with coronavirus visited a cafe and infect more than two dozen of people, but employees at the cafe who wore face masks are not infected.
 
-percentage of fatality for patient ever in ICU, intubated and hospitalized.
+From table 1 to 14 in the appendix, we can see the exact count and spread of covid-19 in Toronto. We find that postal code area of M9V has the highest counts of coronavirus infection. To be specific, neighbourhood Mount Olive-Silverstone-Jamestown has the highest count of infected cased, followed by neighbourhood West Humber-Clairville. Table 6 shows that more young men are infected than yooung women between age of 20 and 29. There are still 1254 active cases in Toronto right now and most of active cases living in neighbourhood of Waterfront Coummunities-The Island, followed by neighbourhood Niagara, York University Heights, 
+Church-Yonge Corridor, which all of these neighbourhoods are populated and crowded.
 
-correlation between age and conditions
+By table 10 and 11, we can see that most of cases have ever been hospitalized are seniors, suggesting high risk of fatality of older population that get infected. Daniele and his colleagues' study also proved our finding of higher risk of infection coronavirus of older people. By table 12,13,and 14, it shows that fatalities are high in hospitalized patients, at percentage of 541/(1403+541+46)=27.2%, once the situation worsen and patient is sent into ICU, the percentage increases to 168/(246+168+14)=39.3%. If the patient is intubates, the rate surges to 133/(155+133+5)=45.4%. Dr. Mohammad and his colleagues found the same result that higher rate of fatality is consistent with hospitalized covid-19 cases in Iran, the same as what we found in Toronto.
+
+## Weakness and next steps
+
+We went through some simple analysis of coronavirus cases in Toronto. However, we didn't build a statistical model to analyze the relationships between variables provided by Open data Toronto. How statistically, for example, age and outcome of covid-19 related? Is it statistically significant?  The result remain unclear and  need further professional analysis and study. 
+
+By showing some patterns of infection of coronavirus cases in Toronto, a few points need to be emphasized and discussed. 
+
+* Should we perform more strict acts to stop the oncoming second waves?
+
+* Like Migita and Debanjan discussed, how can we protect fragile seniors better in this pandemic? How should our health care system get prepared in case of suddenly surging cases?
+
+* What can individuals do to stop the virus spread and how government educates, promotes and advocates citizens to do so? (e.g wear mask, reduce gathering and party, etc.)
+
+
+# References
+* Carrieri, D., Peccatori, F. A., & Boniolo, G. (2020). COVID-19: a plea to protect the older population. International journal for equity in health, 19(1), 72. https://doi.org/10.1186/s12939-020-01193-5
+
+* D'cruz, M., & Banerjee, D. (2020). 'An invisible human rights crisis': The marginalization of older adults during the COVID-19 pandemic - An advocacy review. Psychiatry research, 292, 113369. Advance online publication. https://doi.org/10.1016/j.psychres.2020.113369
+
+* Jalili, M., Payandemehr, P., Saghaei, A., Sari, H. N., Safikhani, H., & Kolivand, P. (2020). Characteristics and Mortality of Hospitalized Patients With COVID-19 in Iran: A National Retrospective Cohort Study. Annals of internal medicine, M20-2911. Advance online publication. https://doi.org/10.7326/M20-2911
+
+* Kim, H., &amp; Kim, S. (2020, August 25). Starbucks Cafe's Covid Outbreak Spared Employees Who Wore Masks. Retrieved September 28, 2020, from https://www.bloomberg.com/news/articles/2020-08-25/this-starbucks-in-south-korea-became-a-beacon-for-mask-wearing
+
+# Appendix
+
+
+Table 1:
 ```{r, echo=FALSE, warning = FALSE, message=FALSE}
 
   data %>%
     group_by(FSA) %>%
     summarise(count=n()) %>%
     arrange(desc(count))
-   
+```
+
+Table 2:
+```{r, echo=FALSE, warning = FALSE, message=FALSE}   
   data %>%
     group_by(`Neighbourhood Name`) %>%
     summarise(count=n()) %>%
     arrange(desc(count))
-  
+```
+
+Table 3:
+```{r, echo=FALSE, warning = FALSE, message=FALSE}  
   data %>%
     group_by(`Age Group`) %>%
     summarise(count=n()) %>%
     arrange(desc(count))
+```
 
+Table 4:
+```{r, echo=FALSE, warning = FALSE, message=FALSE}
   data %>%
     group_by(`Source of Infection`) %>%
     summarise(count=n()) %>%
     arrange(desc(count))
-  
+```
+
+Table 5:
+```{r, echo=FALSE, warning = FALSE, message=FALSE}
   data %>%
     group_by(`Client Gender`) %>%
     summarise(count=n()) %>%
     arrange(desc(count))
-  
+```
+
+Table 6:
+```{r, echo=FALSE, warning = FALSE, message=FALSE}
   data %>%
     group_by(`Client Gender`, `Age Group`) %>%
     summarise(count=n()) %>%
     arrange(desc(count))
-  
+```
+
+Table 7:
+```{r, echo=FALSE, warning = FALSE, message=FALSE}
   data %>%
     group_by(Outcome) %>%
     summarise(count=n()) %>%
     arrange(desc(count))
-  
+```
+
+Table 8:
+```{r, echo=FALSE, warning = FALSE, message=FALSE}
   data %>%
     filter(Outcome == "ACTIVE") %>%
     group_by(`Neighbourhood Name`) %>%
     summarise(count=n()) %>%
     arrange(desc(count))
-    
+```
+
+Table 9:
+```{r, echo=FALSE, warning = FALSE, message=FALSE}
   data %>%
     group_by(`Currently Hospitalized`) %>%
     summarise(count=n()) %>%
     arrange(desc(count))
 ```
-## Weakness and next steps
 
-# References
-Carrieri, D., Peccatori, F. A., & Boniolo, G. (2020). COVID-19: a plea to protect the older population. International journal for equity in health, 19(1), 72. https://doi.org/10.1186/s12939-020-01193-5
+Table 10:
+```{r, echo=FALSE, warning = FALSE, message=FALSE}
+  data %>%
+    filter(`Ever Hospitalized` == "Yes") %>%
+    group_by(`Age Group`) %>%
+    summarise(count=n()) %>%
+    arrange(desc(count))
+```
 
-D'cruz, M., & Banerjee, D. (2020). 'An invisible human rights crisis': The marginalization of older adults during the COVID-19 pandemic - An advocacy review. Psychiatry research, 292, 113369. Advance online publication. https://doi.org/10.1016/j.psychres.2020.113369
+Table 11:
+```{r, echo=FALSE, warning = FALSE, message=FALSE}
+  data %>%
+    filter(Outcome == "FATAL") %>%
+    group_by(`Age Group`) %>%
+    summarise(count=n()) %>%
+    arrange(desc(count))
+``` 
 
+Table 12:
+```{r, echo=FALSE, warning = FALSE, message=FALSE}
+  data %>%
+    filter(`Ever Hospitalized` == "Yes") %>%
+    group_by(Outcome) %>%
+    summarise(count=n()) %>%
+    arrange(desc(count))
+```
 
-Jalili, M., Payandemehr, P., Saghaei, A., Sari, H. N., Safikhani, H., & Kolivand, P. (2020). Characteristics and Mortality of Hospitalized Patients With COVID-19 in Iran: A National Retrospective Cohort Study. Annals of internal medicine, M20-2911. Advance online publication. https://doi.org/10.7326/M20-2911
+Table 13:
+```{r, echo=FALSE, warning = FALSE, message=FALSE}
+  data %>%
+    filter(`Ever in ICU` == "Yes") %>%
+    group_by(Outcome) %>%
+    summarise(count=n()) %>%
+    arrange(desc(count))
+```
+
+Table 14:
+```{r, echo=FALSE, warning = FALSE, message=FALSE}
+  data %>%
+    filter(`Ever Intubated` == "Yes") %>%
+    group_by(Outcome) %>%
+    summarise(count=n()) %>%
+    arrange(desc(count))
+```
