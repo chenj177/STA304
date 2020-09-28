@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>A Hugo website</title>
+    <link>/</link>
+    <description>Recent content on A Hugo website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 27 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Covid-19 Cases Analysis in Toronto</title>
+      <link>/2020/09/27/covid-19-cases-analysis-in-toronto/</link>
+      <pubDate>Sun, 27 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/09/27/covid-19-cases-analysis-in-toronto/</guid>
+      <description>Abstract In this article, we investigated the covid-19 cases in Toronto. We want to demonstrate how covid-19 cases spread around Toronto, what age group has the highest number of cases, and the rate of severity in all cases, etc. Through analyzing the data from open data Toronto, we want to show people a comprehensive and detailed circumstances of this ongoing pandemic in Toronto.
+ Introduction Including Plots You can also embed plots, for example:</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Thu, 05 May 2016 21:48:51 -0700</pubDate>
+      
+      <guid>/about/</guid>
+      <description>This is a &amp;ldquo;hello world&amp;rdquo; example website for the blogdown package. The theme was forked from @jrutheiser/hugo-lithium-theme and modified by Yihui Xie.</description>
+    </item>
+    
+  </channel>
+</rss>

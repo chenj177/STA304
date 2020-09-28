@@ -1,0 +1,181 @@
+---
+title: "Covid-19 Cases Analysis in Toronto" 
+author: "Jingyi Chen" 
+date: "2020-09-27" 
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#install.packages("tidyverse")
+#install.packages("dplyr")
+#install.packages(c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'devtools', 'uuid', 'digest')
+#install.packages("visdat")
+#install.packages("magrittr")
+#devtools::install_github("sharlagelfand/opendatatoronto")
+library(opendatatoronto)
+library(tidyverse)
+library(dplyr)
+library(visdat)
+library(magrittr)
+
+package <- show_package("64b54586-6180-4485-83eb-81e8fae3b8fe")
+package
+
+# get all resources for this package
+resources <- list_package_resources("64b54586-6180-4485-83eb-81e8fae3b8fe")
+
+# identify datastore resources; by default, Toronto Open Data sets datastore resource format to CSV for non-geospatial and GeoJSON for geospatial resources
+datastore_resources <- filter(resources, tolower(format) %in% c('csv', 'geojson'))
+
+# load the first datastore resource as a sample
+data <- filter(datastore_resources, row_number()==1) %>% get_resource()
+data
+
+```
+
+# Abstract
+In this article, we investigated the covid-19 cases in Toronto. We want to demonstrate how covid-19 cases spread around Toronto, what age group has the highest number of cases, and the rate of severity in all cases, etc. Through analyzing the data from open data Toronto, we want to show people a comprehensive and detailed circumstances of this ongoing pandemic in Toronto.
+
+
+# Introduction
+
+```{r, echo=FALSE, , include=FALSE}
+visdat::vis_dat(data)
+
+skimr::skim(data)
+
+class(data$`Age Group`)
+
+active_data <-
+  data %>% 
+  filter(Outcome == "ACTIVE")
+
+fatal_data <-
+  data %>% 
+  filter(Outcome == "FATAL")
+
+select_data <-
+  data %>% 
+  select(`Age Group`, `Outbreak Associated`, `Source of Infection`, `Client Gender`, Outcome)
+
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+
+data %>%
+  ggplot(aes(x = `Age Group`)) +
+  geom_bar() +
+  labs(x = "Age",
+       y = "Number",
+       title = "Distribution of Age Goups in Covid-19 Cases.",
+       tag = "Graph 1")+
+   theme(axis.text.x = element_text(size = 4.5))    
+
+data %>%
+  ggplot(aes(x = `Client Gender`)) +
+  geom_bar() +
+  labs(x = "Gender",
+       y = "Number",
+       title = "Distribution of Gender Goups in Covid-19 Cases.")+
+   theme_bw()
+  
+data %>%
+  ggplot(aes(x = Outcome)) +
+  geom_bar() +
+  labs(x = "Outcome",
+       y = "Number",
+       title = "Distribution of Outcomes in Covid-19 Cases.")+
+   theme_bw()
+
+data %>%
+  ggplot(aes(x = `Source of Infection`)) +
+  geom_bar() +
+  labs(x = "Source of Infection",
+       y = "Number",
+       title = "Distribution of Source of Infection in Covid-19 Cases.")+
+   theme(axis.text.x = element_text(size = 4.5))
+
+
+```
+
+# Discussion
+Most cases in which area
+Most outbreak associated
+Most patient in which age group
+Most patients were infected by
+More female patients than male patients
+age group in each gender
+Total fatal cases and active cases, most active cases in each area
+
+How many patients are currently hospitalized
+how many patients are ever hospitalized
+How many patients are currently in ICU
+How many patients are ever in ICU
+How many patients are currently intubated
+How many patients are ever intubated
+
+percentage of fatality for patient ever in ICU, intubated and hospitalized.
+
+correlation between age and conditions
+```{r, echo=FALSE, warning = FALSE, message=FALSE}
+
+  data %>%
+    group_by(FSA) %>%
+    summarise(count=n()) %>%
+    arrange(desc(count))
+   
+  data %>%
+    group_by(`Neighbourhood Name`) %>%
+    summarise(count=n()) %>%
+    arrange(desc(count))
+  
+  data %>%
+    group_by(`Age Group`) %>%
+    summarise(count=n()) %>%
+    arrange(desc(count))
+
+  data %>%
+    group_by(`Source of Infection`) %>%
+    summarise(count=n()) %>%
+    arrange(desc(count))
+  
+  data %>%
+    group_by(`Client Gender`) %>%
+    summarise(count=n()) %>%
+    arrange(desc(count))
+  
+  data %>%
+    group_by(`Client Gender`, `Age Group`) %>%
+    summarise(count=n()) %>%
+    arrange(desc(count))
+  
+  data %>%
+    group_by(Outcome) %>%
+    summarise(count=n()) %>%
+    arrange(desc(count))
+  
+  data %>%
+    filter(Outcome == "ACTIVE") %>%
+    group_by(`Neighbourhood Name`) %>%
+    summarise(count=n()) %>%
+    arrange(desc(count))
+    
+  data %>%
+    group_by(`Currently Hospitalized`) %>%
+    summarise(count=n()) %>%
+    arrange(desc(count))
+```
+## Weakness and next steps
+
+# References
+Carrieri, D., Peccatori, F. A., & Boniolo, G. (2020). COVID-19: a plea to protect the older population. International journal for equity in health, 19(1), 72. https://doi.org/10.1186/s12939-020-01193-5
+
+D'cruz, M., & Banerjee, D. (2020). 'An invisible human rights crisis': The marginalization of older adults during the COVID-19 pandemic - An advocacy review. Psychiatry research, 292, 113369. Advance online publication. https://doi.org/10.1016/j.psychres.2020.113369
+
+
+Jalili, M., Payandemehr, P., Saghaei, A., Sari, H. N., Safikhani, H., & Kolivand, P. (2020). Characteristics and Mortality of Hospitalized Patients With COVID-19 in Iran: A National Retrospective Cohort Study. Annals of internal medicine, M20-2911. Advance online publication. https://doi.org/10.7326/M20-2911
